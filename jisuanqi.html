@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>计算器</title>
+</head>
+<link rel="stylesheet" href="semantic/semantic.min.css">
+
+<body>
+	<div class="" id="box">
+	
+		<div class="ui container">
+			<div class="ui divider"></div>
+			<p>{{total}}</p>
+			<props-button text="1" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="2" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="3" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="+"></props-button>
+			<br>
+			<br>
+			<props-button text="4" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="5" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="6" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="-"></props-button>
+			<br>
+			<br>
+			<props-button text="7" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="8" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="9" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="*"></props-button>
+			<br>
+			<br>
+			<props-button text="."></props-button>
+			<props-button text="0" v-on:increment="incrementTotal()"></props-button>
+			<props-button text="="></props-button>
+			<props-button text="/"></props-button>
+		</div>
+	</div>
+
+	<script src="js/vue.js"></script>
+	<script>
+//		Vue.component('g-input', {
+//			template: `
+//			<input type="text">
+//			`
+//		})
+		var propsButton = {
+			template: `<button class="ui
+			button" v-on:click="incrementHandler">{{text}}</button>`,
+			props: {
+				text: {
+					type: String,
+					required: true,
+				}
+			},
+			methods: {
+				incrementHandler: function() {
+					alert(111)
+					this.$emit('increment')
+				}
+			},
+		}
+		var vm = new Vue({
+			el: '#box',
+			data: {
+				total: 0
+			},
+			components: {
+				'props-button': propsButton,
+			},
+			methods: {
+				incrementTotal: function() {
+					this.total +=1
+				}
+			}
+		})
+
+	</script>
+
+
+</body>
+
+</html>

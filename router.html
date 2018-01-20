@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>router</title>
+	<style>
+		body {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.r1 {
+			width: 200px;
+			height: 40px;
+			background-color: dodgerblue;
+			border: 1px solid;
+			float: left;
+			text-align: center;
+			line-height: 40px;
+			margin-left: 190px;
+			color: white;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<div>
+			<div>
+				<div class="r1">
+					<router-link to="/">首页</router-link>
+				</div>
+				<div class="r1">
+					<router-link to="/events">新闻</router-link>
+				</div>
+				<div class="r1">
+					<router-link to="/videos">视频</router-link>
+				</div>
+			</div>
+			<div>
+				<router-view>
+				</router-view>
+			</div>
+		</div>
+	</div>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-router.js"></script>
+	<script src="router.js"></script>
+</body>
+
+</html>
